@@ -3,6 +3,7 @@ package pl.fidano.java;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.util.logging.ExceptionLogger;
 import pl.fidano.java.command.Help;
+import pl.fidano.java.command.Important;
 import pl.fidano.java.command.PingPong;
 import pl.fidano.java.utils.Welcome;
 
@@ -22,8 +23,9 @@ public class Richard {
             // Print the invite url of your bot
             System.out.println("You can invite the bot by using the following url: " + api.createBotInvite());
 
-            api.addMessageCreateListener(new PingPong());
             api.addMessageCreateListener(new Help());
+            api.addMessageCreateListener(new PingPong());
+            api.addMessageCreateListener(new Important());
 
             api.addUserChangeStatusListener(new Welcome());
 
